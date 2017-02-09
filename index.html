@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="juzel.css">
+</head>
+
+<body>
+    <main class="flex-container">
+        <section class="trivia-example-container">
+            <article class="trivia-item trivia-example-article">
+                <h3> What is bubble sort?</h3>
+                <p> Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list to be sorted, compares each pair of adjacent items and swaps them if they are in the wrong order. </p>
+            </article>
+            <article class="example-item trivia-example-article">
+                <h3> Example </h3>
+                <img src="http://www.w3resource.com/w3r_images/bubble-short.png" style="width: 300px; align-self: center" alt="No Image">
+            </article>
+        </section>
+
+        <section class="bubble-sort-container">
+            <section class="sort-input-container">
+                <h1 style="font-size: 3rem;">BUBBLE SORT</h1>
+                <h3 style="margin: 0 auto"> Type Anything and Push Enter </h3>
+                <input type="text" id="sortInput" />
+                <button id="submit" style="height: 50px; border-radius: 15px; border: 0;">Submit Input</button>
+            </section>
+            <section class="result trivia-example-article">
+                <h3> Result </h3>
+                <section id="answer">
+
+                </section>
+            </section>
+        </section>
+
+        <section class="my-code-container trivia-example-article">
+            <h2>My Code</h2>
+            <pre>
+let submit = document.getElementById('submit'),
+    sortInput = document.getElementById('sortInput'),
+    answer = document.getElementById('answer');
+
+function bubbleSort(array) {
+    let length = array.length;
+
+    do {
+        for (let i = 0; i < length - 1; i++) {
+            if (array[i] > array[i + 1]) {
+                let temp = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = temp;
+                renderResult(array);
+            }
+        }
+    } while (length--)
+}
+
+function renderResult(element) {
+    let div = document.createElement('div');
+    let elem = document.createElement('span');
+    elem.innerText = element.join('');
+    div.appendChild(elem);
+    answer.appendChild(div);
+}
+submit.onclick = e => {
+
+    bubbleSort(sortInput.value.split(''));
+};                
+        </pre>
+        </section>
+    </main>
+
+    <script src="juzel.js"></script>
+</body>
+
+</html>
